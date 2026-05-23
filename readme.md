@@ -1,0 +1,249 @@
+# Week 1
+
+## Project Overview
+
+In this project I explored different gradient techniques in Processing using the `examples/gradient` code as a starting point.
+
+The goal was to design experimental background visuals for a fictional computational art gallery. These gradients could potentially be used for:
+
+* Poster backgrounds
+* Website animations
+* Exhibition screens
+* Digital branding assets
+
+I experimented with:
+
+* Colour palette selection
+* Gradient direction
+* Circular/radial gradients
+* Multi-stage colour blending
+* Small colour adjustments to create different moods
+
+The palette inspiration:
+![](<Screenshot 2026-05-18 at 11.04.55.png>)
+
+The palette mainly uses:
+
+* Deep navy blue
+* Cyan / turquoise
+* Purple / magenta
+* Neon green accents
+* Soft pink tones
+
+![](<Screenshot 2026-05-18 at 11.01.36.png>)
+---
+
+# Gradient Variations
+
+---
+![](<Screenshot 2026-03-15 at 14.56.34.png>)
+## Variation 1 — Horizontal Gradient
+
+### Idea
+
+This version creates a smooth horizontal transition from dark navy blue to bright cyan.
+
+### Code Features
+
+* Uses `map(x, 0, width - 1, 0, 1)`
+* Interpolates colours with `lerpColor()`
+* Gradient direction depends on the x-axis
+
+### Colours
+
+* `(11, 19, 43)` → dark navy
+* `(57, 229, 255)` → bright cyan
+
+
+---
+![](<Screenshot 2026-03-15 at 14.57.06.png>)
+## Variation 2 — Vertical Gradient
+
+### Idea
+
+This version changes the gradient direction vertically.
+
+### Code Features
+
+* Uses `map(y, 0, height - 1, 0, 1)`
+* Gradient depends on the y-axis
+
+### Colours
+
+* `(11, 19, 43)` → dark navy
+* `(208,119,195)` → soft pink-purple
+
+---
+![](<Screenshot 2026-03-15 at 14.57.32.png>)
+## Variation 3 — Circular/Radial Gradient
+
+### Idea
+
+This version has a circular gradient centred in the middle of the screen.
+
+### Code Features
+
+* Uses `dist()` to measure distance from the centre
+* Gradient radiates outward
+* Introduces radial interpolation
+
+### Colours
+
+* `(57, 229, 123)` → neon green
+* `(208,119,195)` → purple
+
+---
+![](<Screenshot 2026-03-15 at 14.57.54.png>)
+## Variation 4 — Diagonal Gradient
+
+### Idea
+
+This version combines the x and y positions to create a diagonal transition.
+
+### Code Features
+
+* Uses `map(x + y, 0, height + width, 0, 1)`
+* Combines horizontal and vertical movement
+
+### Colours
+
+* `(20, 109, 103)` → teal
+* `(208,119,195)` → purple
+
+---
+![](<Screenshot 2026-03-15 at 14.58.16.png>)
+## Variation 5 — Multi-Stage Radial Gradient
+
+### Idea
+
+This version combines two separate colour transitions inside one radial gradient.
+
+### Code Features
+
+* Uses conditional statements (`if`)
+* Splits the gradient into two blending zones
+* Combines multiple `lerpColor()` transitions
+
+### Colours
+
+Inner blend:
+
+* `(107, 29, 123)` → dark purple
+* `(208,107,255)` → neon purple
+
+Outer blend:
+
+* `(11, 229, 223)` → cyan
+* `(255,19,195)` → hot pink
+
+---
+
+# Techniques Used
+
+* `loadPixels()`
+* `updatePixels()`
+* `lerpColor()`
+* `map()`
+* `dist()`
+* Nested loops
+* Conditional colour interpolation
+
+---
+\* no AI used
+
+# Week 3
+![](<Screenshot 2026-03-15 at 16.34.13.png>)
+![](<Screenshot 2026-03-15 at 16.33.50.png>)
+![](<Screenshot 2026-03-15 at 16.06.34.png>)
+## Overview
+
+The sketch generates an abstract artwork by repeatedly drawing shapes across the canvas. The artwork uses loops, colour variation, and the modulo (%) operator to alternate between different shapes.
+
+## Features
+
+* Uses multiple **Processing primitives**:
+
+  * `ellipse()`
+  * `rect()`
+  * `triangle()`
+  * `line()`
+* Uses the **modulo (`%`) operator** to create repeating patterns.
+* Uses **nested loops** to fill the entire canvas with shapes.
+* Creates a geometric abstract composition with alternating colours and forms.
+
+## How It Works
+
+The program divides the canvas into a grid using nested `for` loops. For each grid position, the code calculates a value using the modulo operator:
+
+`pattern = (x + y) % 180`
+
+This value is then used to determine which shape should be drawn. The code uses another modulo operation (`pattern % 3`) to switch between shapes:
+
+* `0` → Draw an **ellipse**
+* `1` → Draw a **rectangle**
+* `2` → Draw a **triangle**
+
+A diagonal **line** is also drawn inside each grid cell to add additional visual structure and texture to the composition.
+
+---
+\* no AI used
+
+# Week 4
+![](<Screenshot 2026-03-16 at 21.55.01.png>)
+<video controls src="Screen Recording 2026-05-23 at 14.59.10.mov" title="Title"></video>
+## Overview
+This sketch using Perlin noise and primitive shapes in Processing. The animation produces flowing vertical lines that move smoothly creating a visual effect similar to waves or a digital landscape. 
+
+## Key concept
+Primitive Shapes: 
+line() – to draw vertical lines across the canvas.
+
+The noise() function is used to generate smooth values between 0 and 1. These values control the vertical position of the lines, producing a flowing pattern rather than random jumps.
+
+Animation is achieved by increasing the variable t every frame:
+t += 0.01;
+
+## How It Works
+The sketch uses draw() function to continuously render frames, creating animation.
+A for loop iterates across the width of the canvas and draws vertical lines. The height of each line is determined using the noise() function. The variable t is gradually increased every frame. This value is used as a second parameter in the noise() function, to make the pattern slowly change and create the animated effect.
+
+## Class work
+![](<Screenshot 2026-03-24 at 16.34.10.png>) ![](<Screenshot 2026-03-16 at 12.14.20.png>)
+
+\* no AI used
+# Week 6
+
+## Overview
+A live camera feed processed in real time using Floyd-Steinberg dithering, thresholding, and a duotone colour effect. Press **S** to capture and save comic book panels as numbered image files.
+
+
+## What I Built
+
+### Processing (the camera app)
+
+**Camera capture**
+- Uses the `processing.video` library to access the first available webcam
+- Reads a new frame every iteration of `draw()` at 30fps into a `Capture` object called `cam`
+
+**Pixel processing pipeline**
+Every frame, each pixel goes through this chain in order:
+
+1. **Greyscale** — reads only the red channel from `cam.pixels[i]` as a proxy for brightness (works because the image is black and white after dithering)
+2. **Threshold** — snaps each pixel to either pure black (0) or pure white (255) at a midpoint of 127
+3. **Floyd-Steinberg dithering** — the difference between the original grey value and the snapped value (the *error*) is distributed to neighbouring pixels using these ratios:
+   ```
+   .  x  7
+   3  5  1
+   (all divided by 16)
+   ```
+   This preserves the illusion of smooth gradients even though only two values exist
+4. **Threshold again** — a second hard threshold at 100 applied in the second loop to sharpen the result further
+5. **Duotone** — maps the black/white pixel to a colour by lerping between `colorA` (red `221,60,90`) and `colorB` (blue `6,67,169`) based on brightness using `lerpColor()`
+6. **Contrast boost** — applies a standard contrast formula with a high value of 222 to make the duotone pop
+
+**Saving frames**
+- A boolean flag `takePicture` is set to `true` when **S** is pressed
+- After `updatePixels()` completes, if the flag is set, `saveFrame("frame-####.jpg")` saves a sequentially numbered file to the sketch folder
+- Using a flag rather than calling `saveFrame()` directly in `keyPressed()` ensures the pixel buffer is fully rendered before saving
+---
+\* AI used for Readme discription
