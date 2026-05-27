@@ -1,37 +1,26 @@
 import processing.sound.*;
-
 SoundFile kick;
-SoundFile kick1;
-SoundFile kick2;
+SoundFile hat;
+SoundFile drum;
 SoundFile kick3;
 
 void setup() {
   pixelDensity(1);
-  size(400, 400);
-  kick = new SoundFile(this, "kick_w_echo_1s.wav");
-  kick.play();
-  kick1 = new SoundFile(this, "Freesound-1.wav");
-  //kick1.play();
-  kick2 = new SoundFile(this, "Freesound.wav");
+  size(600, 200);
+  kick = new SoundFile(this, "Freesound-4.wav");
+  hat = new SoundFile(this, "Freesound - Search-2.wav");
+  drum = new SoundFile(this, "Freesound - Search-3.wav");
   kick3 = new SoundFile(this, "Freesound-3.wav");
-  //kick2.play();
   frameRate(60);
-
 }
 
 void draw() {
-  int step = (frameCount / 15) % 16;
   background(0);
-  if (step == 0 && frameCount % 30 == 0) {
-  kick.play();
-}
-if (frameCount % 40 == 0) {
-  kick1.play();
-}
-if (frameCount % 20 == 0) {
-  kick2.play();
-}
-if (frameCount % 30 == 0) {
-  kick3.play();
-}
+  int step = (frameCount / 15) % 16;
+  if (frameCount % 15 == 0) {
+    if (step == 0 || step == 6 || step == 8 || step == 13) kick.play();
+    if (step == 4 || step == 12) drum.play();
+    if (step == 3 || step == 11) kick3.play();
+    hat.play();
+  }
 }

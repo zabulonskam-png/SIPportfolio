@@ -247,3 +247,5 @@ Every frame, each pixel goes through this chain in order:
 - Using a flag rather than calling `saveFrame()` directly in `keyPressed()` ensures the pixel buffer is fully rendered before saving
 ---
 \* AI used for Readme discription
+
+# Week 8
