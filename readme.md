@@ -249,3 +249,38 @@ Every frame, each pixel goes through this chain in order:
 \* AI used for Readme discription
 
 # Week 8
+<audio controls src="New Recording 5.m4a" title="Title"></audio>
+### Algorithmic music and sampling
+Four audio samples are layered into a sound pattern that evolves over time through alternating patterns and randomness.
+
+## Samples Used
+
+* Freesound-4.wav 
+<audio controls src="week8/data/Freesound-4.wav" title="Title"></audio>
+*	Freesound - Search-2.wav 
+<audio controls src="week8/data/Freesound - Search-2.wav" title="Title"></audio>
+*	Freesound - Search-3.wav 
+<audio controls src="week8/data/Freesound - Search-3.wav" title="Title"></audio>
+*	Freesound-3.wav
+<audio controls src="week8/data/Freesound-3.wav" title="Title"></audio>
+* Freesound - Search-1 
+<audio controls src="week8/data/Freesound - Search-1.wav" title="Title"></audio>
+
+## Sound change 
+
+Alternating patterns: every 4 seconds (240 frames at 60fps), the kick drum switches between two different step sequences using frameCount / 240 % 2. 
+
+Randomness: Freesound - Search-1  is wrappedd in a (random(1) > 0.5) condition. This introduces an unpredictable pattern
+
+## Sequencer Structure
+The beat is built around a 16-step sequencer running at 60fps. Each step lasts 15 frames, giving a tempo of 120 BPM. Sounds are triggered when frameCount % 15 == 0, and the current step is calculated as:
+int step = (frameCount / 15) % 16;
+
+## Visualisation 
+
+<video controls src="Screen Recording 2026-05-27 at 15.08.24.mov" title="Title"></video>
+An audio-reactive visual element is created using a randomly changing background colour on every beat:
+background(random(255), random(255), random(255));
+The screen flashes a new random colour each time a beat step fires, creating a simple but effective visual rhythm that mirrors the audio
+
+\* no AI used 
