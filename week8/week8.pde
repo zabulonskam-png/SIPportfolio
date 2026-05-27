@@ -10,10 +10,10 @@ void setup() {
   pixelDensity(1);
   size(400, 400);
   kick = new SoundFile(this, "Freesound-4.wav");
-  //hat = new SoundFile(this, "Freesound - Search-2.wav");
+  hat = new SoundFile(this, "Freesound - Search-2.wav");
   drum = new SoundFile(this, "Freesound - Search-3.wav");
   kick3 = new SoundFile(this, "Freesound-3.wav");
-  sound = new SoundFile(this, "Freesound.wav");
+  //sound = new SoundFile(this, "Freesound.wav");
   frameRate(60);
 }
 
@@ -29,7 +29,7 @@ void draw() {
   }
     if (step == 4 || step == 12) drum.play();
     if (step == 3 || step == 11) kick3.play();
-    if (random(1) > 0.5) sound.play();
+    if (random(1) > 0.5) drum.play();
     hat.play();
   }
 }
