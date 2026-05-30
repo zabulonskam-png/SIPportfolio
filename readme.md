@@ -225,21 +225,24 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 - Uses the `processing.video` library to access the first available webcam
 - Reads a new frame every iteration of `draw()` at 30fps into a `Capture` object called `cam`
 
-**Pixel processing pipeline**
-Every frame, each pixel goes through this chain in order:
+![alt text](week6/examples/camera/frame-119190.jpg)
+ **Greyscale** — readschannel from `cam.pixels[i]` as a proxy for brightness (works because the image is black and white after dithering)
+**Threshold** — snaps each pixel to either pure black (0) or pure white (255) at a midpoint of 127
 
-1. **Greyscale** — reads only the red channel from `cam.pixels[i]` as a proxy for brightness (works because the image is black and white after dithering)
-2. **Threshold** — snaps each pixel to either pure black (0) or pure white (255) at a midpoint of 127
-3. **Floyd-Steinberg dithering** — the difference between the original grey value and the snapped value (the *error*) is distributed to neighbouring pixels using these ratios:
+![alt text](week6/examples/camera/frame-43589.jpg)
+ **Duotone** — maps the black/white pixel to a colour by lerping between `colorA` (red `221,60,90`) and `colorB` (blue `6,67,169`) based on brightness using `lerpColor()`
+ **Contrast boost** — applies a standard contrast formula with a high value of 222 to make the duotone pop
+
+![alt text](week6/examples/camera/frame-1647.jpg)
+**Floyd-Steinberg dithering** — the difference between the original grey value and the snapped value (the *error*) is distributed to neighbouring pixels using these ratios:
    ```
    .  x  7
    3  5  1
    (all divided by 16)
    ```
    This preserves the illusion of smooth gradients even though only two values exist
-4. **Threshold again** — a second hard threshold at 100 applied in the second loop to sharpen the result further
-5. **Duotone** — maps the black/white pixel to a colour by lerping between `colorA` (red `221,60,90`) and `colorB` (blue `6,67,169`) based on brightness using `lerpColor()`
-6. **Contrast boost** — applies a standard contrast formula with a high value of 222 to make the duotone pop
+  **Threshold again** — a second hard threshold at 100 applied in the second loop to sharpen the result further
+ 
 
 **Saving frames**
 - A boolean flag `takePicture` is set to `true` when **S** is pressed
@@ -248,8 +251,24 @@ Every frame, each pixel goes through this chain in order:
 ---
 \* AI used for Readme discription
 
+# Week 7
+## Digital Sound and Oscillation
+### Sci-fi planetary landing sound using three oscillators and a low-pass filter
+
+## Features
+
+* Sine oscillator at 440 Hz as the main tone
+* Sawtooth oscillator at 100 Hz to add a rough rumble in the end
+* Triangle oscillator at 800 Hz to add a bright, eerie shimmer on top
+
+* For frequency modulation, I used `sin(float(frameCount) / 130.)` to create a slow, continuous wobble that automatically shifts all three oscillator frequencies over time 
+
+* Low-pass filter connected to the sine oscillator, with the cutoff frequency mapped to the mouse X position
+
+\* AI used to add this line: `filter.process(sine1);` because I couldn't make make filter connect to the oscillator all other code was based on examples from class
+
 # Week 8
-<audio controls src="New Recording 5-1.m4a" title="Title"></audio>
+
 
 ### Algorithmic music and sampling
 Four audio samples are layered into a sound pattern that evolves over time through alternating patterns and randomness.
@@ -269,19 +288,23 @@ Four audio samples are layered into a sound pattern that evolves over time throu
 
 ## Sound change 
 
-Alternating patterns: every 4 seconds (240 frames at 60fps), the kick drum switches between two different step sequences using frameCount / 240 % 2. 
+Alternating patterns: every 4 seconds `(240 frames at 60fps)`, the kick drum switches between two different step sequences using `frameCount / 240 % 2`. 
 
-Randomness: Freesound - Search-1  is wrappedd in a (random(1) > 0.5) condition. This introduces an unpredictable pattern
+Randomness: "Freesound - Search-1"  is wrappedd in a `(random(1) > 0.5)` condition. This introduces an unpredictable pattern
 
 ## Sequencer Structure
-The beat is built around a 16-step sequencer running at 60fps. Each step lasts 15 frames, giving a tempo of 120 BPM. Sounds are triggered when frameCount % 15 == 0, and the current step is calculated as:
-int step = (frameCount / 15) % 16;
+The beat is built around a 16-step sequencer running at 60fps. Each step lasts 15 frames, giving a tempo of 120 BPM. Sounds are triggered when `frameCount % 15 == 0`, and the current step is calculated as:
+`int step = (frameCount / 15) % 16;`
 
 ## Visualisation 
 
 <video controls src="Screen Recording 2026-05-27 at 15.08.24.mov" title="Title"></video>
 An audio-reactive visual element is created using a randomly changing background colour on every beat:
-background(random(255), random(255), random(255));
+`background(random(255), random(255), random(255));`
 The screen flashes a new random colour each time a beat step fires, creating a simple but effective visual rhythm that mirrors the audio
 
 \* no AI used 
+
+# Week 9 
+
+![](IMG_3221.jpg)

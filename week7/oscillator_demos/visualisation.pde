@@ -1,6 +1,6 @@
 void waveViz() {
   background(50);
-  stroke(255);
+  stroke(0);
   strokeWeight(2);
   noFill();
 
