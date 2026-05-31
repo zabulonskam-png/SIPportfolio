@@ -255,6 +255,7 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 ## Digital Sound and Oscillation
 ### Sci-fi planetary landing sound using three oscillators and a low-pass filter
 
+<video controls src="IMG_3243.mov" title="Title"></video> 
 ## Features
 
 * Sine oscillator at 440 Hz as the main tone
@@ -269,7 +270,7 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 
 # Week 8
 
-
+<video controls src="IMG_3245.mov" title="Title"></video>
 ### Algorithmic music and sampling
 Four audio samples are layered into a sound pattern that evolves over time through alternating patterns and randomness.
 
@@ -299,6 +300,7 @@ The beat is built around a 16-step sequencer running at 60fps. Each step lasts 1
 ## Visualisation 
 
 <video controls src="Screen Recording 2026-05-27 at 15.08.24.mov" title="Title"></video>
+### \* Warning: contains flashing images
 An audio-reactive visual element is created using a randomly changing background colour on every beat:
 `background(random(255), random(255), random(255));`
 The screen flashes a new random colour each time a beat step fires, creating a simple but effective visual rhythm that mirrors the audio
@@ -308,3 +310,14 @@ The screen flashes a new random colour each time a beat step fires, creating a s
 # Week 9 
 
 ![](IMG_3221.jpg)
+
+# Development task 
+## Week 10 
+### Galaxy
+### Step 1 
+![alt text](<Screenshot 2026-05-31 at 15.06.12.png>)
+At first I made many stars in the sky by puting them in an ArrayList. I used `ArrayList<PVector> stars = new ArrayList<PVector>();` and `for (int i = 0; i < 60; i++) {
+    stars.add(new PVector(random(width), random(height)));
+  }` to store lots of stars in random locations 
+
+  \* AI help to turn a star to a proper class and connect it to the main file
