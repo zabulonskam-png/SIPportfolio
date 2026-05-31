@@ -3,7 +3,7 @@ class Planet {
  PVector loc, vel, acc;
  float r;
  float ringAngle;
- //PVector wind = new PVector(0.1, 0.02);  // declare globally
+ //PVector wind = new PVector(0.1, 0.02);  
  //int windTimer = 0; 
 
  Planet() {

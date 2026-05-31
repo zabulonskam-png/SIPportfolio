@@ -335,6 +335,8 @@ Before
 After 
 ![](<Screenshot 2026-05-31 at 16.03.34.png>)
 To add a force that impacts the whole system I added `wind`, so `applyForce()` adds the force into `acc`, which then moves `vel`, which moves `loc` so every farme gets a tiny push 
-### PLanets
+### Planets
 To add class planet I just copypasted class stars and adapted it to planet to make them look like this ![](IMG_3247.jpg)
 for this I changed `void draw()`from this ![](<Screenshot 2026-05-31 at 19.49.58.png>) to this ![](<Screenshot 2026-05-31 at 20.01.04.png>)
+### Explosions 
+to add explosions I created class ExpParticle to explode planets on the click of the mouse to add this class I pasted some parts like `acc`, `vel`, `loc` from class stars and planet and built this code based on code from examples from clas 

@@ -1,7 +1,7 @@
 class Star {
 
  PVector loc, vel, acc;
- //PVector wind = new PVector(0.1, 0.02);  // declare globally
+ //PVector wind = new PVector(0.1, 0.02);  
  //int windTimer = 0; 
 
  Star() {
