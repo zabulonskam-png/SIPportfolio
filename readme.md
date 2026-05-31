@@ -314,10 +314,27 @@ The screen flashes a new random colour each time a beat step fires, creating a s
 # Development task 
 ## Week 10 
 ### Galaxy
-### Step 1 
+### Stars 
 ![alt text](<Screenshot 2026-05-31 at 15.06.12.png>)
 At first I made many stars in the sky by puting them in an ArrayList. I used `ArrayList<PVector> stars = new ArrayList<PVector>();` and `for (int i = 0; i < 60; i++) {
     stars.add(new PVector(random(width), random(height)));
   }` to store lots of stars in random locations 
 
   \* AI help to turn a star to a proper class and connect it to the main file
+
+  Before
+  ![](<Screenshot 2026-05-31 at 15.05.00.png>)
+![](<Screenshot 2026-05-31 at 15.05.21.png>)
+
+After 
+![](<Screenshot 2026-05-31 at 16.08.09.png>)
+
+\* AI help because all the sars were in the corner 
+Before 
+![](<Screenshot 2026-05-31 at 16.03.03.png>)
+After 
+![](<Screenshot 2026-05-31 at 16.03.34.png>)
+To add a force that impacts the whole system I added `wind`, so `applyForce()` adds the force into `acc`, which then moves `vel`, which moves `loc` so every farme gets a tiny push 
+### PLanets
+To add class planet I just copypasted class stars and adapted it to planet to make them look like this ![](IMG_3247.jpg)
+for this I changed `void draw()`from this ![](<Screenshot 2026-05-31 at 19.49.58.png>) to this ![](<Screenshot 2026-05-31 at 20.01.04.png>)
