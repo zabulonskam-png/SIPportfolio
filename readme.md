@@ -190,7 +190,7 @@ A diagonal **line** is also drawn inside each grid cell to add additional visual
 
 # Week 4
 ![](<Screenshot 2026-03-16 at 21.55.01.png>)
-<video controls src="Screen Recording 2026-05-23 at 14.59.10.mov" title="Title"></video>
+![](ezgif-2dd0174de1caf029.gif)
 ## Overview
 This sketch using Perlin noise and primitive shapes in Processing. The animation produces flowing vertical lines that move smoothly creating a visual effect similar to waves or a digital landscape. 
 
@@ -298,8 +298,7 @@ The beat is built around a 16-step sequencer running at 60fps. Each step lasts 1
 `int step = (frameCount / 15) % 16;`
 
 ## Visualisation 
-
-<video controls src="Screen Recording 2026-05-27 at 15.08.24.mov" title="Title"></video>
+![](ezgif-2bd4593f8afae258.gif)
 ### \* Warning: contains flashing images
 An audio-reactive visual element is created using a randomly changing background colour on every beat:
 `background(random(255), random(255), random(255));`
@@ -350,7 +349,7 @@ All the physics part was done by me and the visual part by Anika.
 # Development task 
 ## Week 10 
 ### Galaxy
-<video controls src="Screen Recording 2026-05-31 at 21.37.21.mov" title="Title"></video>
+![](ezgif-238002496f55bb0c.gif)
 ### Stars 
 ![alt text](<Screenshot 2026-05-31 at 15.06.12.png>)
 I started by placing stars across the sky using an ArrayList to store lots of them at once. I used `ArrayList<PVector> stars = new ArrayList<PVector>();` to create the list, then filled it with random positions using:
