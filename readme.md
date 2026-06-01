@@ -269,10 +269,7 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 \* AI used to add this line: `filter.process(sine1);` because I couldn't make make filter connect to the oscillator all other code was based on examples from class
 
 # Week 8
-<!-- <audio controls src="New Recording 5.wav" title="Title"></audio> -->
-<audio controls>
-  <source src="./NewRecording5.wav" type="audio/wav">
-</audio>
+<audio controls src="IMG_3245.wav" title="Title"></audio>
 
 ### Algorithmic music and sampling
 Four audio samples are layered into a sound pattern that evolves over time through alternating patterns and randomness.
@@ -311,8 +308,44 @@ The screen flashes a new random colour each time a beat step fires, creating a s
 \* no AI used 
 
 # Week 9 
+## Branchless
+### Collaborative work with Anika
 
-![](IMG_3221.jpg)
+</p>In this game, you will be a little apple who has dropped underground, instead of getting rotted, you decided to escape and go see the world. Its a simple platform game, using keyboard to interact, the goal is to explore the map and find the way to go upper ground.</p>
+All the physics part was done by me and the visual part by Anika. 
+
+### Apple Class
+
+* Designed and implemented the `Apple` class, encapsulating all player state (position, velocity, flags) and behaviour in one object
+
+#### Force 1 — Gravity
+
+* Implemented a frame-rate independent gravity system using `vy += GRAVITY * dt`
+* Gravity constant `(1500 px/s²)` tuned to feel responsive at the game's screen scale
+
+#### Force 2 — Friction (opposing force)
+
+* Applied exponential velocity decay using `vx *= pow(0.75, dt * 60)` each frame
+* Creates natural deceleration when no key is held — apple glides to a stop rather than cutting off instantly
+
+\* AI help was used to add this force
+
+#### Jump Impulse
+
+* Implemented a one-shot jump using an instant upward velocity kick `(vy = -560)`
+* Gravity then decelerates the apple naturally, producing a realistic arc
+* Extended to support double-jump by tracking `jumpsUsed` and resetting on landing
+
+#### Collision Detection & Resolution
+
+* Implemented AABB (Axis-Aligned Bounding Box) tile collision
+* X and Y axes resolved separately to prevent corner-sticking
+* Collision interface abstracted into `solidAt(px, py)` — a stub my teammate fills in with their tile map, keeping our code independent
+
+#### Keyboard Input
+
+* Mapped both arrow keys and WASD for accessibility
+* Used `keyPressed` / `keyReleased` to set boolean flags — ensures smooth movement and correct stop-on-release behaviour
 
 # Development task 
 ## Week 10 
