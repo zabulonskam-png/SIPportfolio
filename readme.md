@@ -255,6 +255,8 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 ## Digital Sound and Oscillation
 ### Sci-fi planetary landing sound using three oscillators and a low-pass filter
 
+## Sound
+https://drive.google.com/file/d/1HpXd1-TClL_pvhJgoRD7vabfztwX9dZi/view?usp=share_link
 <video controls src="IMG_3243.mov" title="Title"></video> 
 ## Features
 
@@ -269,12 +271,12 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 \* AI used to add this line: `filter.process(sine1);` because I couldn't make make filter connect to the oscillator all other code was based on examples from class
 
 # Week 8
-<audio controls src="IMG_3245.wav" title="Title"></audio>
-
+https://drive.google.com/file/d/1r5p92iIbfMktiSwuqtEifLRLL8Qcg788/view?usp=share_link
 ### Algorithmic music and sampling
 Four audio samples are layered into a sound pattern that evolves over time through alternating patterns and randomness.
 
 ## Samples Used
+https://drive.google.com/drive/folders/1HvrZ0_9ES7kmWxoQyenc8TAvTtH_lbaB?usp=share_link
 
 * Freesound-4.wav 
 <audio controls src="week8/data/Freesound-4.wav" title="Title"></audio>
@@ -382,3 +384,4 @@ I also added a ring to each planet using `pushMatrix()` and `popMatrix()` to til
 To make planets explode on mouse click I created a new class called `ExpParticle`. I reused some parts like `acc`, `vel`, `loc`from the Star and Planet classes
  Each particle is spawned at the planet's position with a random outward angle and speed, and has a life value that counts down from 255 to 0, fading the particle out over time. When `isDead()` returns true the particle is removed from the `ArrayList`. I used `mousePressed()` to detect clicks on planets and trigger the explosion. 
  A lot of this code was built based on code from examples from clas 
+ 
