@@ -269,8 +269,11 @@ A live camera feed processed in real time using Floyd-Steinberg dithering, thres
 \* AI used to add this line: `filter.process(sine1);` because I couldn't make make filter connect to the oscillator all other code was based on examples from class
 
 # Week 8
+<!-- <audio controls src="New Recording 5.wav" title="Title"></audio> -->
+<audio controls>
+  <source src="./NewRecording5.wav" type="audio/wav">
+</audio>
 
-<video controls src="IMG_3245.mov" title="Title"></video>
 ### Algorithmic music and sampling
 Four audio samples are layered into a sound pattern that evolves over time through alternating patterns and randomness.
 
@@ -314,13 +317,17 @@ The screen flashes a new random colour each time a beat step fires, creating a s
 # Development task 
 ## Week 10 
 ### Galaxy
+<video controls src="Screen Recording 2026-05-31 at 21.37.21.mov" title="Title"></video>
 ### Stars 
 ![alt text](<Screenshot 2026-05-31 at 15.06.12.png>)
-At first I made many stars in the sky by puting them in an ArrayList. I used `ArrayList<PVector> stars = new ArrayList<PVector>();` and `for (int i = 0; i < 60; i++) {
+I started by placing stars across the sky using an ArrayList to store lots of them at once. I used `ArrayList<PVector> stars = new ArrayList<PVector>();` to create the list, then filled it with random positions using:
+`for (int i = 0; i < 60; i++) {
     stars.add(new PVector(random(width), random(height)));
-  }` to store lots of stars in random locations 
+}`
+This gave me stars located randomly across the canvas
 
-  \* AI help to turn a star to a proper class and connect it to the main file
+  \* AI help was turning a star into a proper class and connecting it to the main file
+
 
   Before
   ![](<Screenshot 2026-05-31 at 15.05.00.png>)
@@ -329,14 +336,17 @@ At first I made many stars in the sky by puting them in an ArrayList. I used `Ar
 After 
 ![](<Screenshot 2026-05-31 at 16.08.09.png>)
 
-\* AI help because all the sars were in the corner 
+\* AI help to fix that all the stars were appearing in the corner due to a wrong edge-wrapping condition
 Before 
 ![](<Screenshot 2026-05-31 at 16.03.03.png>)
 After 
 ![](<Screenshot 2026-05-31 at 16.03.34.png>)
-To add a force that impacts the whole system I added `wind`, so `applyForce()` adds the force into `acc`, which then moves `vel`, which moves `loc` so every farme gets a tiny push 
+ To add a randomised force that affects the whole system I added a `wind` PVector. The method `applyForce()` adds the wind into `acc`, which then updates `vel`, which updates `loc`, so every frame each star gets a tiny push in the wind direction. Every 240 frames the wind randomly changes direction
 ### Planets
-To add class planet I just copypasted class stars and adapted it to planet to make them look like this ![](IMG_3247.jpg)
+To add the Planet class I used the Star class as a starting point — I copied the same structure `(loc, vel, acc)` and adapted the `draw()` method to give planets a completely different look, inspired by this image: ![](IMG_3247.jpg)
 for this I changed `void draw()`from this ![](<Screenshot 2026-05-31 at 19.49.58.png>) to this ![](<Screenshot 2026-05-31 at 20.01.04.png>)
+I also added a ring to each planet using `pushMatrix()` and `popMatrix()` to tilt a flat ellipse at a random angle around the planet centre.
 ### Explosions 
-to add explosions I created class ExpParticle to explode planets on the click of the mouse to add this class I pasted some parts like `acc`, `vel`, `loc` from class stars and planet and built this code based on code from examples from clas 
+To make planets explode on mouse click I created a new class called `ExpParticle`. I reused some parts like `acc`, `vel`, `loc`from the Star and Planet classes
+ Each particle is spawned at the planet's position with a random outward angle and speed, and has a life value that counts down from 255 to 0, fading the particle out over time. When `isDead()` returns true the particle is removed from the `ArrayList`. I used `mousePressed()` to detect clicks on planets and trigger the explosion. 
+ A lot of this code was built based on code from examples from clas 
