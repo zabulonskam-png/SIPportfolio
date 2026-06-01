@@ -39,11 +39,14 @@ void draw() {
   }
 
   // Guard against empty frames
-  if (cam.width == 0) return;
+  if (cam.width == 0 || cam.pixels == null) return;
+
 
   cam.loadPixels();
+  image(cam, 0, 0);
+  loadPixels(); 
   
-  for (int i = 0; i < pixels.length; i++) {
+  for (int i = 0; i < cam.pixels.length; i++) {
     // convert pixel to greyscale
     float greyValue = (red(cam.pixels[i]) + green(cam.pixels[i]) + blue(cam.pixels[i])) / 3.0;
 
