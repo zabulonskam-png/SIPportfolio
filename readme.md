@@ -351,7 +351,7 @@ All the physics part was done by me and the visual part by Anika.
 # Development task 
 ## Week 10 
 ### Galaxy
-![](ezgif-238002496f55bb0c.gif)
+![alt text](ezgif-7340b2c3714db3bf.gif)
 ### Stars 
 ![alt text](<Screenshot 2026-05-31 at 15.06.12.png>)
 I started by placing stars across the sky using an ArrayList to store lots of them at once. I used `ArrayList<PVector> stars = new ArrayList<PVector>();` to create the list, then filled it with random positions using:
