@@ -311,14 +311,14 @@ The screen flashes a new random colour each time a beat step fires, creating a s
 # Week 9 
 ## Branchless
 ![](ezgif-1658e441f1ff9453.gif)
-### Collaborative work with Anika
+### Collaborative work with Anika Zhang
 
 </p>In this game, you will be a little apple who has dropped underground, instead of getting rotted, you decided to escape and go see the world. Its a simple platform game, using keyboard to interact, the goal is to explore the map and find the way to go upper ground.</p>
 
-The visual design of this project was inspired by a game previously designed by Anika
+The visual design of this project was inspired by a game previously designed by Anika Zhang
 https://www.instagram.com/reel/DTdySOEjkhh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA== 
 
-All the physics part was done by me and the visual part by Anika. 
+All the physics part was done by me and the visual part by Anika Zhang. 
 
 ### Apple Class
 
