@@ -14,8 +14,8 @@ void setup() {
   
   String[] cameras = Capture.list();
   
-  colorA = color(101,30,40);
-  colorB = color(16,67,69);
+  colorA = color(201,60,90);
+  colorB = color(16,167,69);
   
   if (cameras.length == 0) {
     println("There are no cameras available for capture.");
