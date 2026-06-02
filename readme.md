@@ -212,7 +212,7 @@ A for loop iterates across the width of the canvas and draws vertical lines. The
 
 \* no AI used
 # Week 6
-
+![](ezgif-76365eeeffe81bf2.gif)
 ## Overview
 A live camera feed processed in real time using Floyd-Steinberg dithering, thresholding, and a duotone colour effect. Press **S** to capture and save comic book panels as numbered image files.
 
